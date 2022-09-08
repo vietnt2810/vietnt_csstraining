@@ -1,4 +1,13 @@
 @media (max-width: 768px) {
+    .main {
+        padding: 0 16px;
+    }
+
+    .item {
+        width: 310px;
+        height: 530px;
+    }
+
     .header>.title {
         font-size: 36px;
         padding: 0 30px;
@@ -10,23 +19,17 @@
     }
 
     .input-holder {
-        width: 270px;
-        margin: 40px 16px 0;
+        width: 100%;
+        max-width: 310px;
+        margin: 40px auto 0;
     }
 
     .search {
         font-size: 16px;
     }
 
-    .row {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 0;
-    }
-
-    .item {
-        margin-bottom: 32px;
+    .item>.img {
+        height: 37%;
     }
 
     .avatar-label {
