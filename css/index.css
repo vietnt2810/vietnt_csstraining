@@ -60,6 +60,10 @@ body {
     font-size: 17px;
 }
 
+.search:focus {
+    outline: none;
+}
+
 .main {
     padding: 0 32px;
 }
@@ -245,6 +249,10 @@ body {
     border: 1px solid #D0D5DD;
     border-radius: 4px;
     margin-bottom: 46px;
+}
+
+.typing-input {
+    outline: none;
 }
 
 .typing-button {
