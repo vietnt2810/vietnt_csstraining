@@ -1,29 +1,23 @@
 $(document).ready(function () {
-  $(document).on("click", ".notliked", function () {
-    var $this = $(this);
-    $this.removeClass("notliked");
-    $this.addClass("liked");
-    var $textchild = $this.children("span");
-    var text = $textchild.text();
-    var count = text.match(/(\d+)/)[0];
-    count++;
-    $textchild.text(`${count} likes`);
-    var $iconchild = $this.children("i");
-    $iconchild.removeClass("fa-regular");
-    $iconchild.addClass("fa-solid");
-  });
-
-  $(document).on("click", ".liked", function () {
-    var $this = $(this);
-    $this.removeClass("liked");
-    $this.addClass("notliked");
-    var $textchild = $this.children("span");
-    var text = $textchild.text();
-    var count = text.match(/(\d+)/)[0];
-    count--;
-    $textchild.text(`${count} likes`);
-    var $iconchild = $this.children("i");
-    $iconchild.removeClass("fa-solid");
-    $iconchild.addClass("fa-regular");
+  $(document).on("click", ".likeholder", function () {
+    var likeHolder = $(this);
+    var textChild = likeHolder.children("span");
+    var text = textChild.text();
+    var count = text.replace(/\D/g, "");
+    var iconChild = likeHolder.children("i");
+    if (likeHolder.hasClass("notliked")) {
+      likeHolder.removeClass("notliked");
+      likeHolder.addClass("liked");
+      count++;
+      iconChild.removeClass("fa-regular");
+      iconChild.addClass("fa-solid");
+    } else if (likeHolder.hasClass("liked")) {
+      likeHolder.removeClass("liked");
+      likeHolder.addClass("notliked");
+      count--;
+      iconChild.removeClass("fa-solid");
+      iconChild.addClass("fa-regular");
+    }
+    textChild.text(`${count} likes`);
   });
 });
