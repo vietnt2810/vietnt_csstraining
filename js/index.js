@@ -18,4 +18,7 @@ $(document).ready(function () {
         iconChild.addClass("fa-regular"));
     textChild.text(`${counter} likes`);
   });
+  $(document).on("click", ".fa-comment", function () {
+    $(".typing-input").focus();
+  });
 });
