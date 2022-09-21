@@ -1,22 +1,20 @@
 $(document).ready(function () {
   $(document).on("click", ".likeholder", function () {
-    var likeHolder = $(this);
-    var textChild = likeHolder.children("span");
-    var text = textChild.text();
-    var counter = text.replace(/\D/g, "");
-    var iconChild = likeHolder.children("i");
-    likeHolder.hasClass("notliked")
-      ? (likeHolder.removeClass("notliked"),
-        likeHolder.addClass("liked"),
-        counter++,
-        iconChild.removeClass("fa-regular"),
-        iconChild.addClass("fa-solid"))
-      : (likeHolder.removeClass("liked"),
-        likeHolder.addClass("notliked"),
-        counter--,
-        iconChild.removeClass("fa-solid"),
-        iconChild.addClass("fa-regular"));
+    let likeHolder = $(this);
+    let textChild = likeHolder.children("span");
+    let iconChild = likeHolder.children("i");
+    let counter = textChild.text().replace(/\D/g, "");
+    let isLiked;
+    isLiked = likeHolder.hasClass("notliked");
+    counter = isLiked ? ++counter : --counter;
     textChild.text(`${counter} likes`);
+    if (isLiked) {
+      likeHolder.removeClass("notliked").addClass("liked");
+      iconChild.removeClass("fa-regular").addClass("fa-solid");
+    } else {
+      likeHolder.removeClass("liked").addClass("notliked");
+      iconChild.removeClass("fa-solid").addClass("fa-regular");
+    }
   });
   $(document).on("click", ".fa-comment", function () {
     $(".typing-input").focus();
