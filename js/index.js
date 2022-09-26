@@ -4,9 +4,8 @@ $(document).ready(function () {
     let textChild = likeHolder.children("span");
     let iconChild = likeHolder.children("i");
     let counter = textChild.text().replace(/\D/g, "");
-    let isLiked;
-    isLiked = likeHolder.hasClass("notliked");
-    counter = isLiked ? ++counter : --counter;
+    let isLiked = likeHolder.hasClass("notliked");
+    isLiked ? ++counter : --counter;
     textChild.text(`${counter} likes`);
     if (isLiked) {
       likeHolder.removeClass("notliked").addClass("liked");
